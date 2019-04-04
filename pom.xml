@@ -12,8 +12,8 @@
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>4.3.18.RELEASE</version>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.0.6.RELEASE</version>
         </dependency>
 
     </dependencies>
