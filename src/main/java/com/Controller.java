@@ -14,7 +14,7 @@ public class Controller {
     @Autowired
     private Step step;
 
-    @RequestMapping(method = RequestMethod.GET,produces = "text/plain")
+    @RequestMapping(method = RequestMethod.GET,value = "/test",produces = "text/plain")
     public @ResponseBody
     String callByBean(){
         route.getId();
