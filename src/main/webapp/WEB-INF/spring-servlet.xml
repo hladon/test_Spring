@@ -8,8 +8,8 @@
                            http://www.springframework.org/schema/context/spring-context.xsd ">
 
     <context:component-scan base-package="com"/>
-    <bean id="Route" class="com.Route"></bean>
-    <bean id="Service" class="com.Service"></bean>
-    <bean id="Step" class="com.Step"></bean>
+    <bean id="ItemDAO" class="com.ItemDAO"></bean>
+    <bean id="ItemService" class="com.ItemService"></bean>
+
 
 </beans>
