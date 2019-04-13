@@ -8,17 +8,16 @@ import org.hibernate.cfg.Configuration;
 public class ItemDAO {
     private static SessionFactory sessionFactory;
 
-    public Item save (Item object){
-        Session session=null;
-        Transaction transaction=null;
-        try{
-            session=createSessionFactory().openSession();
-            transaction=session.getTransaction();
+    public Item save(Item object) {
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = createSessionFactory().openSession();
+            transaction = session.getTransaction();
             transaction.begin();
             session.save(object);
             transaction.commit();
-            System.out.println("Save is done");
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Save is failed");
             System.err.println(e.getMessage());
             if (transaction != null)
@@ -31,7 +30,7 @@ public class ItemDAO {
         return object;
     }
 
-    public  void deleteById(int id) {
+    public void deleteById(int id) {
         Session session = null;
         Transaction tr = null;
         try {
@@ -41,7 +40,6 @@ public class ItemDAO {
             Item persistentInstance = session.load(Item.class, id);
             if (persistentInstance != null) {
                 session.delete(persistentInstance);
-                System.out.println("Delete is done");
             }
             tr.commit();
         } catch (Exception e) {
@@ -55,6 +53,7 @@ public class ItemDAO {
         }
 
     }
+
     public Item update(Item object) {
         Session session = null;
         Transaction tr = null;
@@ -64,7 +63,6 @@ public class ItemDAO {
             tr.begin();
             session.update(object);
             tr.commit();
-            System.out.println("Update is done");
         } catch (Exception e) {
             System.err.println("Update is failed");
             System.err.println(e.getMessage());
@@ -78,25 +76,24 @@ public class ItemDAO {
         return object;
     }
 
-    public Item findById(int id){
-        Session session=null;
+    public Item findById(int id) {
+        Session session = null;
         try {
             session = createSessionFactory().openSession();
-            Item item=session.get(Item.class,id);
+            Item item = session.get(Item.class, id);
             return item;
-        }catch(Exception e){
+        } catch (Exception e) {
             System.err.println("Search is failed");
             System.err.println(e.getMessage());
-        }finally {
-            if (session!=null)
+        } finally {
+            if (session != null)
                 session.close();
         }
         return null;
     }
 
 
-
-    protected   static SessionFactory createSessionFactory() {
+    protected static SessionFactory createSessionFactory() {
         if (sessionFactory == null) {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         }

@@ -16,7 +16,8 @@
         <property name = "hibernate.connection.password">
             QWer1234
         </property>
-        <mapping class="Item"></mapping>
+
+        <mapping class="com.Item"></mapping>
 
 
     </session-factory>
