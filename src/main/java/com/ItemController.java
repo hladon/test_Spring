@@ -1,8 +1,10 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 
 
@@ -16,18 +18,15 @@ public class ItemController  {
         return itemService.read(id);
     }
 
-    @PostMapping( value = "/",produces = "text/plain" )
-    public @ResponseBody String doPost(@RequestParam(name = "name") String name,
-                                       @RequestParam(name = "description") String description ) {
-        itemService.create(name,description);
+    @PostMapping( value = "/",produces = "text/plain",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String doPost(@RequestBody Item item) {
+        itemService.create(item);
         return "Save is done";
     }
 
-    @PutMapping( value = "/",produces = "text/plain" )
-    public @ResponseBody String doPut(@RequestParam(name = "name") String name,
-                                       @RequestParam(name = "description") String description,
-                                        @RequestParam(name = "id") String id) {
-        itemService.update(id,name,description);
+    @PutMapping( value = "/",produces = "text/plain",consumes = MediaType.APPLICATION_JSON_VALUE )
+    public @ResponseBody String doPut(@RequestBody Item item) {
+        itemService.update(item);
         return "Update is done";
     }
 

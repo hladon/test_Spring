@@ -6,11 +6,8 @@ import java.util.Date;
 public class ItemService {
     @Autowired
     private  ItemDAO itemDAO=new ItemDAO();
-    public  void create(String name,String description){
-        Item item=new Item();
+    public  void create(Item item){
         item.setDateCreated(new Date());
-        item.setName(name);
-        item.setDescription(description);
         item.setLastUpdatedDate(new Date());
         itemDAO.save(item);
     }
@@ -19,10 +16,7 @@ public class ItemService {
         Item item=itemDAO.findById(id);
         return item.toString();
     }
-    public  void update(String id,String name,String description){
-        Item item=itemDAO.findById(Integer.parseInt(id));
-        item.setName(name);
-        item.setDescription(description);
+    public  void update(Item item){
         item.setLastUpdatedDate(new Date());
         itemDAO.update(item);
 

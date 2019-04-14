@@ -9,6 +9,9 @@ public class Item {
     private Date dateCreated;
     private Date lastUpdatedDate;
     private String description;
+
+
+
     @Id
     @SequenceGenerator(name = "ITEM_SK", sequenceName = "ITEM_SK", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ITEM_SK")
