@@ -15,7 +15,7 @@ abstract class DAO<T> {
     protected static Transaction tr = null;
 
     public T save(T object) {
-        try(Session session = createSessionFactory().openSession()) {
+        try (Session session = createSessionFactory().openSession()) {
             tr = session.getTransaction();
             tr.begin();
             session.save(object);
@@ -48,7 +48,7 @@ abstract class DAO<T> {
     }
 
     public void updateList(List<T> list) {
-        try(Session session = createSessionFactory().openSession())  {
+        try (Session session = createSessionFactory().openSession()) {
             tr = session.getTransaction();
             tr.begin();
             for (T object : list)
@@ -65,7 +65,7 @@ abstract class DAO<T> {
     }
 
     public long getFreeStorageSpace(Storage storage) {
-        try(Session session = createSessionFactory().openSession())  {
+        try (Session session = createSessionFactory().openSession()) {
             NativeQuery query = session.createNativeQuery("SELECT SUM(FILE_SIZE) FROM FILES WHERE STORAGE_ID=:d  ");
             query.setParameter("d", storage.getId());
             Number result = (Number) query.getSingleResult();
@@ -80,7 +80,7 @@ abstract class DAO<T> {
     }
 
     public List<File> getFilesByStorage(Storage storage) {
-        try(Session session = createSessionFactory().openSession())  {
+        try (Session session = createSessionFactory().openSession()) {
             NativeQuery query = session.createNativeQuery("SELECT * FROM FILES WHERE STORAGE_ID=:d  ");
             query.setParameter("d", storage.getId()).addEntity(File.class);
             List<File> list = query.getResultList();

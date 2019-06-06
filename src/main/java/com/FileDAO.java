@@ -27,7 +27,7 @@ public class FileDAO extends DAO<File> implements Repository<File> {
 
     @Override
     public File findById(long id) {
-        try(Session session = createSessionFactory().openSession())  {
+        try (Session session = createSessionFactory().openSession()) {
             File file = session.get(File.class, id);
             return file;
         } catch (Exception e) {

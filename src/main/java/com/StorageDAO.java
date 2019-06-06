@@ -6,7 +6,6 @@ import org.hibernate.Transaction;
 
 public class StorageDAO extends DAO<Storage> implements Repository<Storage> {
 
-
     @Override
     public void delete(long id) {
         Transaction tr = null;
@@ -31,7 +30,7 @@ public class StorageDAO extends DAO<Storage> implements Repository<Storage> {
     @Override
     public Storage findById(long id) {
 
-        try(Session session = createSessionFactory().openSession())  {
+        try (Session session = createSessionFactory().openSession()) {
             Storage storage = session.get(Storage.class, id);
             return storage;
         } catch (Exception e) {
