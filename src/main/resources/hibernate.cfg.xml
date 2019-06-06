@@ -2,24 +2,21 @@
 <!DOCTYPE hibernate-configuration SYSTEM
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name = "hibernate.connection.driver_class">
-            oracle.jdbc.driver.OracleDriver
-        </property>
-        <property name = "hibernate.connection.url">
-            jdbc:oracle:thin:@gromcode-lessons.ctmtirr3ce0v.us-east-2.rds.amazonaws.com:1521:orcl
-        </property>
-        <property name = "hibernate.connection.username">
-            main
-        </property>
+        <session-factory>
+            <property name = "hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+            <property name = "hibernate.connection.url">jdbc:oracle:thin:@gromcode-lessons.ctmtirr3ce0v.us-east-2.rds.amazonaws.com:1521:orcl</property>
+            <property name = "hibernate.connection.username">
+                main
+            </property>
 
-        <property name = "hibernate.connection.password">
-            QWer1234
-        </property>
-
-        <mapping class="com.Item"></mapping>
+            <property name = "hibernate.connection.password">
+                QWer1234
+            </property>
+            <mapping class="com.File"></mapping>
+            <mapping class="com.Storage"></mapping>
 
 
-    </session-factory>
+
+        </session-factory>
 
 </hibernate-configuration>

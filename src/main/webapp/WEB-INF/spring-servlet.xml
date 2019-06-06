@@ -8,8 +8,10 @@
                            http://www.springframework.org/schema/context/spring-context.xsd ">
 
     <context:component-scan base-package="com"/>
-    <bean id="ItemDAO" class="com.ItemDAO"></bean>
-    <bean id="ItemService" class="com.ItemService"></bean>
+    <bean id="FileDAO"  class="com.FileDAO"></bean>
+    <bean id="Service"  class="com.Service"></bean>
+    <bean id="Controller"  class="com.Controller"></bean>
+    <bean id="StorageDAO"  class="com.StorageDAO"></bean>
 
 
 </beans>
