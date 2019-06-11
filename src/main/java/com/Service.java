@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
-
+@org.springframework.stereotype.Service
 public class Service {
     @Autowired
     private FileDAO repository;

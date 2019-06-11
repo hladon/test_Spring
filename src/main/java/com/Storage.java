@@ -1,8 +1,11 @@
 package com;
 
+
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "STORAGES")

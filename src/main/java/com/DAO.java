@@ -5,10 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.NativeQuery;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 abstract class DAO<T> {
 
     private static SessionFactory sessionFactory;

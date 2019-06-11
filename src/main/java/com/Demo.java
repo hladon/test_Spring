@@ -1,15 +1,20 @@
 package com;
 
+import config.SpringConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
 public class Demo {
+
     @Autowired
     public StorageDAO storageDAO;
     @Autowired
